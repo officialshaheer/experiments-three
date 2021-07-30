@@ -149,7 +149,7 @@ export class TvRoomComponent implements OnInit {
           }
           
           scene.add(gltf.scene)
-          gltf.scene.scale.set(15,15,15)
+          // gltf.scene.scale.set(15,15,15)
           gltf.scene.receiveShadow = true
           this.models.push(gltf.scene)
       }
@@ -225,8 +225,8 @@ export class TvRoomComponent implements OnInit {
     )
     sphere.castShadow = true
     sphere.position.y = 0.5
-    scene.add(sphere)
-    sphere.scale.set(15,15,15)
+    // scene.add(sphere)
+    // sphere.scale.set(15,15,15)
 
     //Three Player Box 
     const playerGeometry = new THREE.BoxBufferGeometry(.5,.5,.5)
@@ -236,8 +236,8 @@ export class TvRoomComponent implements OnInit {
     const playerMesh = new THREE.Mesh(playerGeometry,playerMaterial)
     playerMesh.position.y = .26
     playerMesh.castShadow = true
-    scene.add(playerMesh)
-    playerMesh.scale.set(15,15,15)
+    // scene.add(playerMesh)
+    // playerMesh.scale.set(15,15,15)
 
     // Cannon.js Player Box
     const playerShape = new CANNON.Box(new CANNON.Vec3( 0.5 / 2 * 15, 0.5 / 2 * 15, 0.5 / 2 * 15))
@@ -375,9 +375,9 @@ export class TvRoomComponent implements OnInit {
 
     //Camera Initialisation
     this.camera = new THREE.PerspectiveCamera(75,  sizes.width / sizes.height, 0.1, 10000)
-    this.camera.position.x = 0
-    this.camera.position.y = 150
-    this.camera.position.z = 0
+    this.camera.position.x = 7
+    this.camera.position.y = 6
+    this.camera.position.z = 14
 
     // this.camera.lookAt(new THREE.Vector3(0,0,0));
     scene.add(this.camera)
