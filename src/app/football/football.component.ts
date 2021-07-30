@@ -8,13 +8,12 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import * as CANNON from 'cannon-es';
 import gsap from 'gsap';
 
-
 @Component({
-  selector: 'app-table-tennis',
-  templateUrl: './table-tennis.component.html',
-  styleUrls: ['./table-tennis.component.scss']
+  selector: 'app-football',
+  templateUrl: './football.component.html',
+  styleUrls: ['./football.component.scss']
 })
-export class TableTennisComponent implements OnInit {
+export class FootballComponent implements OnInit {
 
   flag: boolean = false;
   models: any=[];
@@ -127,7 +126,7 @@ export class TableTennisComponent implements OnInit {
     gltfLoader.setDRACOLoader(dracoLoader)
 
     // Textures
-    const bakedTexture = textureLoader.load('assets/models/3/baked.jpg')
+    const bakedTexture = textureLoader.load('assets/models/2/baked.jpg')
     bakedTexture.flipY = false
     bakedTexture.encoding = THREE.sRGBEncoding
 
@@ -140,7 +139,7 @@ export class TableTennisComponent implements OnInit {
 
     // Model
     gltfLoader.load(
-      'assets/models/3/model.glb',
+      'assets/models/2/model.glb',
       (gltf) => {
           
           const mergedMesh = gltf.scene.children.find((child) => child.name === 'baked')

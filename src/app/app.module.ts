@@ -6,12 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TableTennisComponent } from './table-tennis/table-tennis.component';
+import { FootballComponent } from './football/football.component';
+import { OfficeComponent } from './office/office.component';
+import { TvRoomComponent } from './tv-room/tv-room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    TableTennisComponent
+    TableTennisComponent,
+    FootballComponent,
+    OfficeComponent,
+    TvRoomComponent
   ],
   imports: [
     BrowserModule,

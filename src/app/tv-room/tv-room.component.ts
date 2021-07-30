@@ -10,11 +10,11 @@ import gsap from 'gsap';
 
 
 @Component({
-  selector: 'app-table-tennis',
-  templateUrl: './table-tennis.component.html',
-  styleUrls: ['./table-tennis.component.scss']
+  selector: 'app-tv-room',
+  templateUrl: './tv-room.component.html',
+  styleUrls: ['./tv-room.component.scss']
 })
-export class TableTennisComponent implements OnInit {
+export class TvRoomComponent implements OnInit {
 
   flag: boolean = false;
   models: any=[];
@@ -127,7 +127,7 @@ export class TableTennisComponent implements OnInit {
     gltfLoader.setDRACOLoader(dracoLoader)
 
     // Textures
-    const bakedTexture = textureLoader.load('assets/models/3/baked.jpg')
+    const bakedTexture = textureLoader.load('assets/models/0/baked.jpg')
     bakedTexture.flipY = false
     bakedTexture.encoding = THREE.sRGBEncoding
 
@@ -140,7 +140,7 @@ export class TableTennisComponent implements OnInit {
 
     // Model
     gltfLoader.load(
-      'assets/models/3/model.glb',
+      'assets/models/0/model.glb',
       (gltf) => {
           
           const mergedMesh = gltf.scene.children.find((child) => child.name === 'baked')

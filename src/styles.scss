@@ -2,26 +2,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Boilerplate CSS for App */
-.spacer {
-    flex: 1;
-    padding-left: 10px;
-    text-align: center;
-  }
-
-  .navigation-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    align-items: center;
-    background-color: #000000e7;
-    color: white;
-    font-weight: 600;
-  }
 
   .main-content {
     display: flex;
@@ -45,5 +25,9 @@
   top: 0;
   left: 0;
   outline: none;
-  z-index: 999;
+  z-index: 0;
+}
+
+body {
+  background-color: black;
 }
