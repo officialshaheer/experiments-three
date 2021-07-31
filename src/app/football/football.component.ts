@@ -441,7 +441,7 @@ export class FootballComponent implements OnInit {
         // this.camera.position.z = sphereBody.position.z
 
         playerMesh.position.x = - this.broadcastingOrientationValues.alpha;
-        playerMesh.position.y = this.broadcastingOrientationValues.beta;
+        // playerMesh.position.y = this.broadcastingOrientationValues.beta;
         // playerMesh.position.z = this.broadcastingOrientationValues.gamma;
 
         playerBody.position.x = playerMesh.position.x;
