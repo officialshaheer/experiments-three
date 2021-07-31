@@ -21,6 +21,8 @@ export class FootballComponent implements OnInit {
   camera: any;
   navigationFlag: boolean = false;
 
+  sphereBody: any;
+
   orientationValues: any = [];
 
   broadcastingOrientationValues: any = {alpha: 40, beta:4, gamma: 0};
@@ -193,14 +195,14 @@ export class FootballComponent implements OnInit {
 
     //Physic Sphere
     const sphereShape = new CANNON.Sphere(0.15 * 15)
-    const sphereBody = new CANNON.Body({
+    this.sphereBody = new CANNON.Body({
         mass: 1,
         position: new CANNON.Vec3(0,5,0),
         shape: sphereShape,
         material: plasticMaterial
     })
     // sphereBody.applyLocalForce(new CANNON.Vec3(0, 0, 0), new CANNON.Vec3(0, 0, 0))
-    world.addBody(sphereBody)
+    world.addBody(this.sphereBody)
     
 
     //Physics Floor
@@ -276,7 +278,7 @@ export class FootballComponent implements OnInit {
         material: concreteMaterial
     })
     // walls1Body.addEventListener("collide", playWallSound)
-    world.addBody(walls1Body)
+    // world.addBody(walls1Body)
 
     //2
     const wall2Mesh = new THREE.Mesh(wallGeometry, wallMaterial)
@@ -295,7 +297,7 @@ export class FootballComponent implements OnInit {
         material: concreteMaterial
     })
     // walls2Body.addEventListener("collide", playWallSound)
-    world.addBody(walls2Body)
+    // world.addBody(walls2Body)
 
     //3
 
@@ -328,7 +330,7 @@ export class FootballComponent implements OnInit {
         Math.PI * 0.5
     )
     // walls3Body.addEventListener("collide", playWallSound)
-    world.addBody(walls3Body)
+    // world.addBody(walls3Body)
 
     //three
     const wall4Mesh = new THREE.Mesh(wall2Geometry, wall2Material)
@@ -353,7 +355,7 @@ export class FootballComponent implements OnInit {
         Math.PI * 0.5
     )
     // walls4Body.addEventListener("collide", playWallSound)
-    world.addBody(walls4Body)
+    // world.addBody(walls4Body)
 
 
     //Renderer Size
@@ -424,13 +426,13 @@ export class FootballComponent implements OnInit {
       //Update Physics World
       world.step(1 / 60, elapsedTime, 3)
 
-      sphere.position.x = sphereBody.position.x
-      sphere.position.y = sphereBody.position.y
-      sphere.position.z = sphereBody.position.z
+      sphere.position.x = this.sphereBody.position.x
+      sphere.position.y = this.sphereBody.position.y
+      sphere.position.z = this.sphereBody.position.z
 
-      sphere.rotation.x = sphereBody.quaternion.x
-      sphere.rotation.y = sphereBody.quaternion.y
-      sphere.rotation.z = sphereBody.quaternion.z
+      sphere.rotation.x = this.sphereBody.quaternion.x
+      sphere.rotation.y = this.sphereBody.quaternion.y
+      sphere.rotation.z = this.sphereBody.quaternion.z
 
       if (this.broadcastingOrientationValues){
         
@@ -440,11 +442,11 @@ export class FootballComponent implements OnInit {
 
         playerMesh.position.x = this.broadcastingOrientationValues.alpha;
         playerMesh.position.y = this.broadcastingOrientationValues.beta;
-        playerMesh.position.z = this.broadcastingOrientationValues.gamma;
+        // playerMesh.position.z = this.broadcastingOrientationValues.gamma;
 
         playerBody.position.x = playerMesh.position.x;
         playerBody.position.y = playerMesh.position.y;
-        playerBody.position.z = playerMesh.position.z;
+        // playerBody.position.z = playerMesh.position.z;
         // console.log(this.broadcastingOrientationValues.alpha);
         
         // this.camera.position.y = this.broadcastingOrientationValues.beta;
@@ -508,6 +510,10 @@ export class FootballComponent implements OnInit {
     window.addEventListener('keyup', (event: any) => {
       this.keyboard[event.keyCode] = false;
     });
+  }
+
+  resetBallPosition() {
+    this.sphereBody.position.set(0,2.315,0);
   }
 
   navigateToRoom() {
