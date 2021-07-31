@@ -440,7 +440,7 @@ export class FootballComponent implements OnInit {
         // this.camera.position.y = sphereBody.position.y
         // this.camera.position.z = sphereBody.position.z
 
-        playerMesh.position.x = this.broadcastingOrientationValues.alpha;
+        playerMesh.position.x = - this.broadcastingOrientationValues.alpha;
         playerMesh.position.y = this.broadcastingOrientationValues.beta;
         // playerMesh.position.z = this.broadcastingOrientationValues.gamma;
 
@@ -513,7 +513,7 @@ export class FootballComponent implements OnInit {
   }
 
   resetBallPosition() {
-    this.sphereBody.position.set(0,2.315,0);
+    this.sphereBody.position.set(0,3,0);
   }
 
   navigateToRoom() {
