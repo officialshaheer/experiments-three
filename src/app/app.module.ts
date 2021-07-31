@@ -9,6 +9,7 @@ import { TableTennisComponent } from './table-tennis/table-tennis.component';
 import { FootballComponent } from './football/football.component';
 import { OfficeComponent } from './office/office.component';
 import { TvRoomComponent } from './tv-room/tv-room.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TvRoomComponent } from './tv-room/tv-room.component';
     TableTennisComponent,
     FootballComponent,
     OfficeComponent,
-    TvRoomComponent
+    TvRoomComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

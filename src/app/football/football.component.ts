@@ -23,7 +23,7 @@ export class FootballComponent implements OnInit {
 
   orientationValues: any = [];
 
-  broadcastingOrientationValues: any = {alpha: 0,beta:3, gamma: 4};
+  broadcastingOrientationValues: any = {alpha: 40, beta:4, gamma: 0};
 
   constructor(private socketService: SocketServiceService) { }
 
@@ -195,11 +195,11 @@ export class FootballComponent implements OnInit {
     const sphereShape = new CANNON.Sphere(0.15 * 15)
     const sphereBody = new CANNON.Body({
         mass: 1,
-        position: new CANNON.Vec3(0,0,0),
+        position: new CANNON.Vec3(0,5,0),
         shape: sphereShape,
         material: plasticMaterial
     })
-    sphereBody.applyLocalForce(new CANNON.Vec3(0, 0, 0), new CANNON.Vec3(0, 0, 0))
+    // sphereBody.applyLocalForce(new CANNON.Vec3(0, 0, 0), new CANNON.Vec3(0, 0, 0))
     world.addBody(sphereBody)
     
 
@@ -276,7 +276,7 @@ export class FootballComponent implements OnInit {
         material: concreteMaterial
     })
     // walls1Body.addEventListener("collide", playWallSound)
-    // world.addBody(walls1Body)
+    world.addBody(walls1Body)
 
     //2
     const wall2Mesh = new THREE.Mesh(wallGeometry, wallMaterial)
@@ -295,7 +295,7 @@ export class FootballComponent implements OnInit {
         material: concreteMaterial
     })
     // walls2Body.addEventListener("collide", playWallSound)
-    // world.addBody(walls2Body)
+    world.addBody(walls2Body)
 
     //3
 
@@ -328,7 +328,7 @@ export class FootballComponent implements OnInit {
         Math.PI * 0.5
     )
     // walls3Body.addEventListener("collide", playWallSound)
-    // world.addBody(walls3Body)
+    world.addBody(walls3Body)
 
     //three
     const wall4Mesh = new THREE.Mesh(wall2Geometry, wall2Material)
@@ -353,7 +353,7 @@ export class FootballComponent implements OnInit {
         Math.PI * 0.5
     )
     // walls4Body.addEventListener("collide", playWallSound)
-    // world.addBody(walls4Body)
+    world.addBody(walls4Body)
 
 
     //Renderer Size
@@ -434,14 +434,17 @@ export class FootballComponent implements OnInit {
 
       if (this.broadcastingOrientationValues){
         
-        this.camera.position.x = sphereBody.position.x
-        this.camera.position.y = sphereBody.position.y
-        this.camera.position.z = sphereBody.position.z
+        // this.camera.position.x = sphereBody.position.x
+        // this.camera.position.y = sphereBody.position.y
+        // this.camera.position.z = sphereBody.position.z
 
         playerMesh.position.x = this.broadcastingOrientationValues.alpha;
         playerMesh.position.y = this.broadcastingOrientationValues.beta;
+        playerMesh.position.z = this.broadcastingOrientationValues.gamma;
+
         playerBody.position.x = playerMesh.position.x;
         playerBody.position.y = playerMesh.position.y;
+        playerBody.position.z = playerMesh.position.z;
         // console.log(this.broadcastingOrientationValues.alpha);
         
         // this.camera.position.y = this.broadcastingOrientationValues.beta;

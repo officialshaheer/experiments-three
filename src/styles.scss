@@ -5,11 +5,13 @@
 
   .main-content {
     display: flex;
-    margin: 50px auto 32px;
+    margin: 150px auto 32px;
     padding: 0 16px;
     max-width: 960px;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    list-style: none;
   }
 
 /* Basic App needs above styles for NavBar and Content */
