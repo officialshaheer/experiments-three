@@ -485,7 +485,7 @@ export class OfficeComponent implements OnInit {
 
       if(this.models) {
         this.models.forEach((model :any) => {
-          // model.rotation.y += 0.001
+          model.rotation.y -= 0.001
         });
       }
 
